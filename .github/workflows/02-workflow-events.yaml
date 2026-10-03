@@ -1,14 +1,14 @@
 name: 02 - Workflow Events
 on:
-    push:
-        branches:
-            - main
-    pull_request:
-        branches:
-            - main
-        types: [opened, synchronize, reopened]
-    schedule:
-        - cron: '0 0 * * *' # Runs every day at midnight
+    # push:
+    #     branches:
+    #         - main
+    # pull_request:
+    #     branches:
+    #         - main
+    #     types: [opened, synchronize, reopened]
+    # schedule:
+    #     - cron: '0 0 * * *' # Runs every day at midnight
     workflow_dispatch:
         inputs:
             name:
