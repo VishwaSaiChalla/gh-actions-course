@@ -1,20 +1,26 @@
 name: 02 - Workflow Events
 on:
-    - push
-    - pull_request
-    - schedule:
+    push:
+        branches:
+            - main
+    pull_request:
+        branches:
+            - main
+        types: [opened, synchronize, reopened]
+    schedule:
         - cron: '0 0 * * *' # Runs every day at midnight
-    - workflow_dispatch:
+    workflow_dispatch:
         inputs:
             name:
-                description: 'Vishwa Sai Challa'
+                description: 'Name to display in the workflow'
                 required: true
                 default: 'World'
-    
 
 jobs:
     echo:
         runs-on: ubuntu-latest
+        permissions:
+            contents: read
         steps:
             - name: Show the trigger
               run: 'echo "The workflow was triggered by the following event: ${{ github.event_name }}"'
