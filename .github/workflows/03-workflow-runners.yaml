@@ -1,6 +1,16 @@
 name: 03 - Workflow Runners
 on:
-    push:
+    workflow_dispatch:
+        inputs:
+            runner-type:
+                description: 'Select the type of runner to use'
+                required: true
+                default: 'ubuntu'
+                type: choice
+                options:
+                    - ubuntu
+                    - windows
+                    - macos
 
 jobs:
     ubuntu-echo:
