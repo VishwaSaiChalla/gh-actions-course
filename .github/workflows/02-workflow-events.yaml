@@ -1,10 +1,10 @@
 name: 02 - Workflow Events
-on: |
-    push
-    pull_request
-    schedule:
+on:
+    - push
+    - pull_request
+    - schedule:
         - cron: '0 0 * * *' # Runs every day at midnight
-    workflow_dispatch:
+    - workflow_dispatch:
         inputs:
             name:
                 description: 'Vishwa Sai Challa'
