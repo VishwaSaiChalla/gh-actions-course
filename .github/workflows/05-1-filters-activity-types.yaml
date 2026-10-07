@@ -1,7 +1,7 @@
 name: 05 - 1 - Event Filters and Activity Types
 on:
   pull_request:
-    Types: [opened, synchronize]
+    types: [opened, synchronize]
     branches: main
   workflow_dispatch:
 
@@ -10,5 +10,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print steps
-        run: 'echo "Running whenever a PR is opened or synchronized AND base branch is main"'
-        
+        run: 'echo "Action type: ${{ github.event.action || github.event_name }}; base branch is main"'
