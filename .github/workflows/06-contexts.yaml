@@ -12,6 +12,10 @@ env:
   MY_WORKFLOW_VAR : 'workflow'
   MY_OVERWRITTEN_VAR : 'workflow'
 
+defaults:
+  run:
+    shell: bash
+
 jobs:
   echo-data:
     env:
@@ -37,12 +41,12 @@ jobs:
         env:
           MY_OVERWRITTEN_VAR: 'step'
         run: |
-          'echo "Workflow env: ${{MY_WORKFLOW_VAR}}"'
-          'echo "Job env: ${{MY_JOB_VAR}}"'
-          'echo "Overwritten env: ${{MY_OVERWRITTEN_VAR}}"'
+          'echo "Workflow env: $MY_WORKFLOW_VAR"'
+          'echo "Job env: $MY_JOB_VAR"'
+          'echo "Overwritten env: $MY_OVERWRITTEN_VAR"'
 
       - name: Print Env Variables
         run: |
-          'echo "Workflow env: ${{MY_WORKFLOW_VAR}}"'
-          'echo "Job env: ${{MY_JOB_VAR}}"'
-          'echo "Overwritten env: ${{MY_OVERWRITTEN_VAR}}"'
+          'echo "Workflow env: $MY_WORKFLOW_VAR"'
+          'echo "Job env: $MY_JOB_VAR"'
+          'echo "Overwritten env: $MY_OVERWRITTEN_VAR"'
